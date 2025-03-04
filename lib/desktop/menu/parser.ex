@@ -14,7 +14,7 @@ defmodule Desktop.Menu.Parser do
   def parse(string) when is_list(string) or is_binary(string) do
     IO.puts("#{__MODULE__} before: #{string}")
 
-    string = Utils.strip_comments(string)
+    {:ok, string} = Utils.strip_comments(string)
 
     IO.puts("#{__MODULE__} after: #{string}")
 

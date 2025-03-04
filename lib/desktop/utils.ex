@@ -5,22 +5,22 @@ defmodule Desktop.Utils do
   Removes HTML-style comments (<!-- ... -->) from a string, handling potential errors.
   """
   def strip_comments(input) do
-    if String.contains(input, "<!--") do
+    if String.contains?(input, "<!--") do
       regex = ~r/<!--.*?-->/s
 
       case Regex.replace(regex, input, fn _ -> "" end) do
         {:ok, result} ->
-          result
+          {:ok, result}
 
         {:error, _} ->
           Logger.debug("#{__MODULE__} strip_comments error")
-          input
+          {:ok, input}
 
         _ ->
-          input
+          {:ok, input}
       end
     else
-      input
+      {:ok, input}
     end
   end
 end
