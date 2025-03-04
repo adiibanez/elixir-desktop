@@ -143,7 +143,7 @@ defmodule Desktop.Menu do
       quote do
         @behaviour Desktop.Menu
         import Desktop.Menu, only: [assign: 2, connected?: 1]
-        import Phoenix.HTML, only: [sigil_e: 2, sigil_E: 2]
+        # import Phoenix.HTML, only: [sigil_e: 2, sigil_E: 2]
         import Phoenix.LiveView.Helpers, only: [sigil_L: 2, sigil_H: 2]
         alias Desktop.Menu
 
@@ -153,7 +153,7 @@ defmodule Desktop.Menu do
       quote do
         @behaviour Desktop.Menu
         import Desktop.Menu, only: [assign: 2, connected?: 1]
-        import Phoenix.HTML, only: [sigil_e: 2, sigil_E: 2]
+        # import Phoenix.HTML, only: [sigil_e: 2, sigil_E: 2]
         import Phoenix.LiveView.Helpers, only: [sigil_L: 2]
         import Phoenix.Component, only: [sigil_H: 2]
         alias Desktop.Menu

@@ -4,6 +4,7 @@ defmodule Desktop.Menu.Parser do
   require Logger
   alias Desktop.Menu.HTMLTokenizer
   alias Desktop.Menu.HTMLTokenizer.ParseError
+  alias Desktop.Utils
 
   def parse(data) when is_tuple(data) or is_map(data) do
     Phoenix.HTML.Safe.to_iodata(data)
@@ -11,6 +12,12 @@ defmodule Desktop.Menu.Parser do
   end
 
   def parse(string) when is_list(string) or is_binary(string) do
+    IO.puts("#{__MODULE__} before: #{string}")
+
+    string = Utils.strip_comments(string)
+
+    IO.puts("#{__MODULE__} after: #{string}")
+
     string = :unicode.characters_to_binary(string)
 
     if System.get_env("TRACE_MENU") do
