@@ -86,7 +86,8 @@ defmodule Desktop.MixProject do
       {:phoenix, "> 1.0.0"},
       {:phoenix_live_view, "> 0.15.0"},
       {:plug, "> 1.0.0"},
-      {:gettext, "> 0.10.0"}
+      {:gettext, "> 0.10.0"},
+      {:wx_ex, "~> 0.5.0"}
     ]
 
     if Mix.target() in [:android, :ios] do
