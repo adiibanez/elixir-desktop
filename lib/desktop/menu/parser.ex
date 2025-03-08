@@ -12,11 +12,9 @@ defmodule Desktop.Menu.Parser do
   end
 
   def parse(string) when is_list(string) or is_binary(string) do
-    IO.puts("#{__MODULE__} before: #{string}")
 
-    {:ok, string} = Utils.strip_comments(string)
-
-    IO.puts("#{__MODULE__} after: #{string}")
+    # strip comments from phx dev tools
+    string = Utils.strip_comments(string)
 
     string = :unicode.characters_to_binary(string)
 

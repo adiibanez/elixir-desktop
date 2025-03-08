@@ -2,6 +2,7 @@ defmodule Desktop.Menu.Adapter.Wx do
   @moduledoc false
   alias Desktop.{Wx, OS}
   alias Desktop.Wx.TaskBarIcon
+  use WxEx
 
   require Record
   require Logger
@@ -22,9 +23,9 @@ defmodule Desktop.Menu.Adapter.Wx do
           taskbar_icon: TaskBarIcon.t() | nil
         }
 
-  for tag <- [:wx, :wxCommand, :wxMenu] do
-    Record.defrecordp(tag, Record.extract(tag, from_lib: "wx/include/wx.hrl"))
-  end
+  # for tag <- [:wx, :wxCommand, :wxMenu] do
+  #   Record.defrecordp(tag, Record.extract(tag, from_lib: "wx/include/wx.hrl"))
+  # end
 
   def new(opts) do
     %__MODULE__{
